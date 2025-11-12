@@ -1,6 +1,6 @@
 ---
-title: "Molly White"
-description: "Molly White is a researcher, software engineer, and writer who focuses on the cryptocurrency industry, blockchains, web3, and tech more broadly."
+title: "Shavon Nand"
+description: "Hi!"
 page_class: "home h-card"
 path: "/"
 ---
@@ -8,58 +8,24 @@ path: "/"
 {% extends "layouts/with-nav.njk" %}
 {% block content %}
 
-<h1 class="title">I'm <span class="p-name">Molly White</span>.</h1>
-<p>
-  I research and write critically about the cryptocurrency industry and
-  technology more broadly in my independent publication,
-  <a class="u-url" href="https://www.citationneeded.news/"
-    ><i>Citation Needed</i></a
-  >. I regularly <a href="/press">appear in media</a>,
-  <a href="/speaking#conferences">speak</a> at major conferences including South
-  By Southwest and Web Summit; <a href="/speaking#lectures">guest lecture</a> at
-  universities including Harvard, MIT, and Stanford; and advise policymakers and
-  regulators globally. I have bylines in
-  <a href="https://www.nytimes.com/by/molly-white"><i>The New York Times</i></a
-  >,
-  <a
-    href="https://www.theguardian.com/global/commentisfree/2024/mar/28/sam-bankman-fried-prison-crypto-regulation"
-    ><i>The Guardian</i></a
-  >,
-  <a href="https://www.rollingstone.com/author/molly-white/"
-    ><i>Rolling Stone</i></a
-  >, and
-  <a href="https://www.bloomberg.com/authors/AW19UtyPnUk/molly-white"
-    ><i>Bloomberg Businessweek</i></a
-  >.
-</p>
-<p>
-  I also run the websites
-  <a class="u-url" href="https://www.web3isgoinggreat.com/"
-    ><i>Web3 is Going Just Great</i></a
-  >, where I highlight examples of how cryptocurrencies, web3 projects, and the
-  industry surrounding them are failing to live up to their promises, and
-  <a class="u-url" href="https://www.followthecrypto.org/"
-    ><i>Follow the Crypto</i></a
-  >, where I track cryptocurrency industry spending in United States elections.
-</p>
-<p>
-  My criticism of the cryptocurrency and technology industries stems from a
-  deeper conviction: that technology should serve human needs rather than mere
-  profits. This belief has shaped my life and career, from my work as a
-  professional software engineer to my more than fifteen-year role as an active
-  Wikipedian (as
-  <a class="u-url" href="https://en.wikipedia.org/wiki/User:GorillaWarfare"
-    >GorillaWarfare</a
-  >), where I serve as an administrator and
-  <a href="https://en.wikipedia.org/wiki/Wikipedia:Functionaries">functionary</a
-  >, and previously served three terms on the
-  <a href="https://en.wikipedia.org/wiki/Wikipedia:Arbitration_Committee"
-    >Arbitration Committee</a
-  >. I care deeply about free and open access to high-quality information, and
-  view projects like Wikipedia as critical infrastructure. I spend a lot of time
-  thinking about how to make a better, more human-centered web, and am a
-  passionate advocate for free and open access, digital sovereignty, and ethical
-  technology.
-</p>
+<h1 class="title">I'm <span class="p-name">Shavon Nand</span>.</h1>
+<p>Hi!</p>
+
+<h2>Recent Activity</h2>
+<ul>
+{% for post in collections.posts | reverse %}
+  <li>
+    <a href="{{ post.url }}">{{ post.data.title }}</a>
+    <time datetime="{{ post.date.toISOString() }}">
+      {{ post.date.toLocaleDateString('en-AU') }}
+    </time>
+    {% if post.data.description %}
+      <p>{{ post.data.description }}</p>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+
+
 
 {% endblock %}
