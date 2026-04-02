@@ -1,0 +1,43 @@
+{% extends "layouts/with-nav.njk" %}
+{% block content %}
+<article class="post">
+
+  <header class="post-header" role="region" aria-label="Post header">
+    <h1 class="post-title">{{ title }}</h1>
+    {% if subtitle %}
+    <h3 class="subtitle">{{ subtitle }}</h3>
+    {% endif %}
+    <div class="byline">
+      <a href="/">
+        <div class="avatar">
+          <img src="/assets/images/avatar.jpeg" avatar">
+        </div>
+      </a>
+      <div class="author-meta">
+        <a href="/" style="text-decoration: none;"><span
+            class="author-name">Shavon Nand</span></a>
+  {% if date %}
+  <time datetime="{{ date.toISOString() }}">
+    {{ date.toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' }) }}
+  </time>
+  {% endif %}
+      </div>
+    </div>
+
+      {%- if image -%}
+  <figure>
+    <img src="/{{ image }}"  width="1456" height="819"  alt="{{ alt }}" loading="lazy">
+    {% if caption %}
+    <figcaption>{{ caption }}</figcaption>
+    {% endif %}
+  </figure>
+  {%- endif -%}
+  </header>
+
+  <div class="available-content">
+  <div class="article-content">
+  {{ content | safe }}
+  </div>
+  </div>
+</article>
+{% endblock %}

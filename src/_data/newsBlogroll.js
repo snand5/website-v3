@@ -1,41 +1,5 @@
 module.exports = [
   {
-    text: "404 Media",
-    tags: ["technology"],
-    xmlUrl: "https://www.404media.co/rss/",
-    htmlUrl: "https://www.404media.co/",
-  },
-  {
-    text: "Aftermath",
-    tags: ["games"],
-    xmlUrl: "https://aftermath.site/rss",
-    htmlUrl: "https://aftermath.site/",
-  },
-  {
-    text: "BleepingComputer",
-    tags: ["technology"],
-    xmlUrl: "https://www.bleepingcomputer.com/feed/",
-    htmlUrl: "http://www.bleepingcomputer.com/forums/f/2/news/",
-  },
-  {
-    text: "Court Watch",
-    author: "Seamus Hughes",
-    tags: ["Substack", "law"],
-    xmlUrl: "https://seamushughes.substack.com/feed",
-    htmlUrl: "https://seamushughes.substack.com/",
-  },
-  {
-    text: "Defector",
-    tags: ["sports"],
-    xmlUrl: "https://defector.com/feed",
-    htmlUrl: "https://defector.com/",
-  },
-  {
-    text: "Democracy Docket",
-    xmlUrl: "https://www.democracydocket.com/feed/",
-    htmlUrl: "https://www.democracydocket.com/",
-  },
-  {
     text: "Erin In The Morning",
     author: "Erin Reed",
     authorWiki: "Erin Reed (journalist)",
@@ -44,79 +8,9 @@ module.exports = [
     htmlUrl: "https://www.erininthemorning.com/",
   },
   {
-    text: "Fix The News",
-    xmlUrl: "https://fixthenews.com/rss/",
-    htmlUrl: "https://fixthenews.com/",
-  },
-  {
-    text: "It's Going Down",
-    xmlUrl: "https://itsgoingdown.org/feed/",
-    htmlUrl: "https://itsgoingdown.org/",
-  },
-  {
-    text: "Money Stuff",
-    author: "Matt Levine",
-    authorWiki: "Matt Levine (columnist)",
-    tags: ["finance"],
-    xmlUrl:
-      "https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine.rss",
-    htmlUrl:
-      "https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine",
-  },
-  {
-    text: "Mississippi Free Press",
-    xmlUrl: "https://www.mississippifreepress.org/feed/",
-    htmlUrl: "https://www.mississippifreepress.org/",
-  },
-  {
-    text: "MIT Technology Review",
-    tags: ["technology"],
-    xmlUrl: "https://www.technologyreview.com/stream/rss/",
-    htmlUrl: "https://www.technologyreview.com/stream/?sort=recent",
-  },
-  {
-    text: "NOTUS",
-    xmlUrl: "https://www.notus.org/all-notus-stories.rss",
-    htmlUrl: "https://www.notus.org/all-notus-stories",
-  },
-  {
-    text: "OpenSecrets Blog",
-    xmlUrl: "https://www.opensecrets.org/news/feed",
-    htmlUrl: "https://www.opensecrets.org/news",
-  },
-  {
-    text: "Prison Journalism Project",
-    tags: ["criminal-justice"],
-    xmlUrl: "https://prisonjournalismproject.org/feed/",
-    htmlUrl: "https://prisonjournalismproject.org/",
-  },
-  {
     text: "ProPublica",
     xmlUrl: "https://feeds.propublica.org/propublica/main",
     htmlUrl: "https://www.propublica.org/",
-  },
-  {
-    text: "Rascal News",
-    tags: ["games"],
-    xmlUrl: "https://www.rascal.news/rss/",
-    htmlUrl: "https://rascal.news/",
-  },
-  {
-    text: "Rest of World",
-    xmlUrl: "https://restofworld.org/feed/latest",
-    htmlUrl: "https://restofworld.org/",
-  },
-  {
-    text: "SCOTUSblog",
-    tags: ["law"],
-    xmlUrl: "https://www.scotusblog.com/feed/",
-    htmlUrl: "https://www.scotusblog.com/",
-  },
-  {
-    text: "Tech Policy Press",
-    tags: ["technology"],
-    xmlUrl: "https://www.techpolicy.press/rss/feed.xml",
-    htmlUrl: "https://www.techpolicy.press/",
   },
   {
     text: "Techdirt",
@@ -125,72 +19,53 @@ module.exports = [
     htmlUrl: "https://www.techdirt.com/",
   },
   {
-    text: "The 19th",
-    xmlUrl: "https://19thnews.org/feed/",
-    htmlUrl: "https://19thnews.org/",
-  },
-  {
-    text: "The Counteroffensive",
-    author: "Tim Mak",
-    tags: ["Ukraine", "Substack"],
-    xmlUrl: "https://www.counteroffensive.news/feed",
-    htmlUrl: "https://www.counteroffensive.news/",
-  },
-  {
-    text: "The Future, Now and Then",
-    author: "Dave Karpf",
-    tags: ["Substack"],
-    xmlUrl: "https://davekarpf.substack.com/feed",
-    htmlUrl: "https://davekarpf.substack.com/",
-  },
-  {
     text: "The Intercept",
     xmlUrl: "https://theintercept.com/feed/?lang=en",
     htmlUrl: "https://theintercept.com/",
   },
   {
-    text: "The Maine Monitor",
-    xmlUrl: "https://themainemonitor.org/feed/",
-    htmlUrl: "https://themainemonitor.org/",
-  },
-  {
-    text: "The Markup",
-    tags: ["technology"],
-    xmlUrl: "https://themarkup.org/feeds/rss.xml",
-    htmlUrl: "https://themarkup.org/",
-  },
-  {
-    text: "The Marshall Project",
-    tags: ["criminal-justice"],
-    xmlUrl: "https://www.themarshallproject.org/rss/recent.rss",
-    htmlUrl: "https://www.themarshallproject.org/",
-  },
-  {
-    text: "The Present Age",
-    author: "Parker Molloy",
-    authorWiki: "Parker Molloy",
-    tags: ["Substack"],
-    xmlUrl: "https://www.readtpa.com/feed",
-    htmlUrl: "https://www.readtpa.com/",
-  },
-  {
-    text: "The TRiiBE",
-    xmlUrl: "https://thetriibe.com/feed/",
-    htmlUrl: "https://thetriibe.com/",
-  },
-  {
-    text: "Unicorn Riot",
-    xmlUrl: "http://www.unicornriot.ninja/?feed=rss2",
-    htmlUrl: "http://www.unicornriot.ninja/",
-  },
-  {
-    text: "Unraveled",
-    xmlUrl: "https://unraveledpress.com/rss.xml",
-    htmlUrl: "https://unraveledpress.com/",
-  },
-  {
     text: "Wired",
     xmlUrl: "https://www.wired.com/feed/rss",
     htmlUrl: "https://www.wired.com/",
+  },
+  {
+    text: "Retraction Watch",
+    xmlUrl: "https://retractionwatch.com/feed",
+    htmlUrl: "https://retractionwatch.com/",
+  },
+  {
+    text: "Michael West Media",
+    xmlUrl: "https://michaelwest.com.au/feed",
+    htmlUrl: "https://michaelwest.com.au/",
+  },
+  {
+    text: "Independent Australia",
+    xmlUrl: "http://feeds.feedburner.com/IndependentAustralia",
+    htmlUrl: "https://independentaustralia.net/",
+  },
+  {
+    text: "Hindenburg Research",
+    xmlUrl: "https://hindenburgresearch.com/feed/",
+    htmlUrl: "https://hindenburgresearch.com/",
+  },
+  {
+    text: "IEEE Spectrum",
+    xmlUrl: "https://spectrum.ieee.org/customfeeds/feed/all-topics/rss",
+    htmlUrl: "https://spectrum.ieee.org/",
+  },
+  {
+    text: "Deeplinks",
+    xmlUrl: "https://www.eff.org/rss/updates.xml",
+    htmlUrl: "https://www.eff.org/",
+  },
+  {
+    text: "bellingcat",
+    xmlUrl: "https://www.bellingcat.com/feed",
+    htmlUrl: "https://www.bellingcat.com/",
+  },
+  {
+    text: "The Committee to Protect Journalists",
+    xmlUrl: "https://cpj.org/blog/atom.xml",
+    htmlUrl: "https://cpj.org/blog/",
   },
 ];
