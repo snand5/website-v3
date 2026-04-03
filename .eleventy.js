@@ -4,7 +4,6 @@ const path = require("path");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItFootnote = require("markdown-it-footnote");
-
 module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.addPlugin(pluginRss);
@@ -16,7 +15,7 @@ module.exports = function (eleventyConfig) {
     "node_modules/@fortawesome/fontawesome-free":
       "assets/fonts/fontawesome-free",
   });
-
+  eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addFilter("sortBlogs", (posts) => {
     const getAuthor = (post) => {
       if (post.author) {
@@ -28,15 +27,12 @@ module.exports = function (eleventyConfig) {
         return name.toLowerCase();
       }
     };
-
     return posts.sort((a, b) => {
       const authorA = getAuthor(a);
       const authorB = getAuthor(b);
-
       return authorA.localeCompare(authorB);
     });
   });
-
   // Render CSS inline
   eleventyConfig.addShortcode("postcss", async (filename) => {
     const filepath = path.join("src/assets/styles", filename);
@@ -55,12 +51,10 @@ module.exports = function (eleventyConfig) {
         console.error(err);
       });
   });
-
   eleventyConfig.setNunjucksEnvironmentOptions({
     trimBlocks: true,
     lstripBlocks: true,
   });
-
   eleventyConfig.setServerOptions({
     module: "@11ty/eleventy-server-browsersync",
     middleware: function (req, res, next) {
@@ -68,10 +62,8 @@ module.exports = function (eleventyConfig) {
       next();
     },
   });
-
   const md = markdownIt({ html: true }).use(markdownItFootnote);
   eleventyConfig.setLibrary("md", md);
-
   return {
     dir: {
       input: "src",
@@ -79,5 +71,3 @@ module.exports = function (eleventyConfig) {
     },
   };
 };
-
-eleventyConfig.addPassthroughCopy("src/CNAME");
