@@ -4,38 +4,40 @@
   "description": "v3 of my personal website",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist/*",
+    "clean": "rimraf dist",
     "start": "npm run clean && npx @11ty/eleventy --serve",
-    "build": "npm run clean && npx @11ty/eleventy"
+    "build": "npm run clean && npx @11ty/eleventy",
+    "build-ghpages": "npx @11ty/eleventy --pathprefix=/website-v3/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/molly/website-v3.git"
+    "url": "git+https://github.com/snand5/website-v3.git"
   },
-  "author": "Molly White",
+  "author": "Shavon Nand",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/molly/website-v3/issues"
+    "url": "https://github.com/snand5/website-v3/issues"
   },
-  "homepage": "https://github.com/molly/website-v3#readme",
+  "homepage": "https://github.com/snand5/website-v3#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0",
+    "@11ty/eleventy": "^3.1.5",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-server-browsersync": "^1.0.2",
     "@csstools/postcss-sass": "^5.0.1",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.27",
     "clean-css": "^5.3.2",
     "cssnano": "^5.1.14",
     "eleventy-sass": "^2.1.7",
     "fs": "^0.0.1-security",
     "lodash.sortby": "^4.7.0",
-    "postcss": "^8.4.21",
+    "postcss": "^8.5.8",
     "postcss-import": "^15.1.0",
     "rimraf": "^4.1.2",
     "stylelint": "^15.3.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "markdown-it-footnote": "^4.0.0",
     "normalize.css": "^8.0.1"
   }
 }

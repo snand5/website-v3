@@ -2,6 +2,8 @@ const fs = require("fs");
 const postcss = require("postcss");
 const path = require("path");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const markdownIt = require("markdown-it");
+const markdownItFootnote = require("markdown-it-footnote");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
@@ -66,6 +68,9 @@ module.exports = function (eleventyConfig) {
       next();
     },
   });
+
+  const md = markdownIt({ html: true }).use(markdownItFootnote);
+  eleventyConfig.setLibrary("md", md);
 
   return {
     dir: {
