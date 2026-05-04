@@ -1,0 +1,109 @@
+---
+title: Blog
+permalink: /blog/
+---
+{% extends "layouts/with-nav.njk" %}
+{% block content %}
+
+{% set allPosts = collections.posts | reverse %}
+{% set featuredPost = allPosts | first %}
+{% set contentGridPosts = allPosts | skip(1) | limit(3) %}
+{% set sidebarPosts = allPosts | skip(4) | limit(3) %}
+
+<div class="blog-layout">
+  <div class="blog-col-content">
+
+    {% if featuredPost %}
+    <article class="blog-featured-hero">
+      {% if featuredPost.data.image %}
+      <a href="{{ featuredPost.url }}" class="blog-featured-hero__image">
+        <img src="/{{ featuredPost.data.image }}" alt="{{ featuredPost.data.alt }}" loading="lazy">
+      </a>
+      {% endif %}
+      <div class="blog-featured-hero__content">
+        {% if featuredPost.data.section %}
+        <p class="post-section">{{ featuredPost.data.section }}</p>
+        {% endif %}
+        <h2 class="blog-featured-hero__title">
+          <a href="{{ featuredPost.url }}">{{ featuredPost.data.title }}</a>
+        </h2>
+        {% if featuredPost.data.description or featuredPost.data.subtitle %}
+        <p class="blog-featured-hero__excerpt">{{ featuredPost.data.description or featuredPost.data.subtitle }}</p>
+        {% endif %}
+      </div>
+    </article>
+    {% endif %}
+
+    {% if contentGridPosts.length %}
+    <ul class="blog-articles-grid">
+      {% for post in contentGridPosts %}
+      <li class="blog-article">
+        {% if post.data.image %}
+        <a href="{{ post.url }}" class="blog-article__image">
+          <img src="/{{ post.data.image }}" alt="{{ post.data.alt }}" loading="lazy">
+        </a>
+        {% endif %}
+        <div class="blog-article__content">
+          <h3 class="blog-article__title">
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </h3>
+          {% if post.data.description or post.data.subtitle %}
+          <p class="blog-article__excerpt">{{ post.data.description or post.data.subtitle }}</p>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+  </div>
+
+  <div class="blog-col-sidebar">
+    {% for post in sidebarPosts %}
+    <article class="blog-sidebar-article">
+      {% if post.data.image %}
+      <a href="{{ post.url }}" class="blog-sidebar-article__image">
+        <img src="/{{ post.data.image }}" alt="{{ post.data.alt }}" loading="lazy">
+      </a>
+      {% endif %}
+      <div class="blog-sidebar-article__content">
+        <h3 class="blog-sidebar-article__title">
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </h3>
+        {% if post.data.description or post.data.subtitle %}
+        <p class="blog-sidebar-article__excerpt">{{ post.data.description or post.data.subtitle }}</p>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+
+<hr class="blog-divider">
+
+<div class="blog-all-posts">
+  <h2 class="blog-all-posts__heading">All Posts</h2>
+  <div class="blog-categories-grid">
+    {% for section in collections.sectionList %}
+    <div class="blog-category-col">
+      <a href="/blog/{{ section.slug }}/" class="blog-category-label">{{ section.name }}</a>
+      <ul class="blog-category-list">
+        {% for post in section.posts | limit(4) %}
+        <li class="blog-category-item{% if loop.first %} blog-category-item--spotlight{% endif %}">
+          {% if loop.first and post.data.image %}
+          <a href="{{ post.url }}" class="blog-category-item__image">
+            <img src="/{{ post.data.image }}" alt="{{ post.data.alt }}" loading="lazy">
+          </a>
+          {% endif %}
+          <h3 class="blog-category-item__title">
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </h3>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

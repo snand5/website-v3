@@ -1,5 +1,30 @@
 @import "_tokens.scss";
 
+// Reviews use system fonts intentionally for a printed-page aesthetic,
+// separate from the site's custom --serif-fonts and --sans-serif-fonts.
+$review-serif:  Georgia, "Times New Roman", Times, serif;
+$review-sans:   Arial, Helvetica, sans-serif;
+
+// Annotation badge dimensions
+$annotation-badge-size: 0.625rem;
+$comment-badge-size:    0.875rem;
+
+// Thread indent step — each nesting level adds one unit of left margin
+$thread-indent-unit: 0.625rem;
+
+// Small text scale used in multiple places
+$font-size-small: 80%;
+
+// Breakpoints
+// 1801px / 1800px split: the middle rule covers exactly 1001–1800px;
+// using min-width: 1801px for "super-wide" keeps the ranges non-overlapping.
+$bp-review-wide:    1801px;
+$bp-review-mid-max: 1800px;
+$bp-review-mid-min: 1001px;
+$bp-review-tablet:  751px;
+$bp-review-mobile:  750px;
+$bp-review-small:   480px;
+
 @counter-style alpha-paren {
   system: extends lower-alpha;
   suffix: ") ";
@@ -16,14 +41,14 @@ body {
   line-height: 1.5;
 }
 .review {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $review-serif;
   padding: 0;
 }
 .review h2,
 .review h3,
 .review h4,
 .review h5 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $review-sans;
   margin: 0;
 }
 .review a:hover {
@@ -31,7 +56,7 @@ body {
   text-decoration: none;
 }
 .review .title-block {
-  margin: 0.625rem;
+  margin: $thread-indent-unit;
   text-align: center;
 }
 .review .title-block .title-image {
@@ -42,8 +67,8 @@ body {
   max-width: 100%;
 }
 .review .byline {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 80%;
+  font-family: $review-sans;
+  font-size: $font-size-small;
   max-width: 31.25rem;
   margin: 0 auto;
 }
@@ -53,7 +78,7 @@ body {
 .review .intro,
 .review .outro {
   max-width: 50rem;
-  padding: 0 0.625rem;
+  padding: 0 $thread-indent-unit;
 }
 .review .intro {
   margin: 0 auto 1.875rem auto;
@@ -103,7 +128,7 @@ body {
 }
 .review .content h3,
 .review .content h4 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $review-sans;
 }
 .review .content p {
   margin-top: 0;
@@ -122,7 +147,7 @@ body {
   margin: 0;
 }
 .review .footnotes {
-  font-size: 80%;
+  font-size: $font-size-small;
 }
 .review mark {
   color: var(--main-text-color);
@@ -154,10 +179,10 @@ body {
   position: relative;
   border-radius: 50%;
   border: 1px solid var(--main-text-color);
-  width: 0.625rem;
-  height: 0.625rem;
-  font-size: 0.625rem;
-  line-height: 0.625rem;
+  width: $annotation-badge-size;
+  height: $annotation-badge-size;
+  font-size: $annotation-badge-size;
+  line-height: $annotation-badge-size;
   padding: 1px;
   text-align: center;
   margin-left: 0.1875rem;
@@ -178,7 +203,7 @@ body {
 }
 .review .annotation {
   background-color: var(--bg-color);
-  padding: 0.625rem;
+  padding: $thread-indent-unit;
   border: 1px solid var(--hr-color);
 }
 .review .annotation:hover {
@@ -188,15 +213,15 @@ body {
 .review .annotation-group[role="comment"][data-annotation-id]::after {
   content: attr(data-annotation-id);
   content: attr(data-annotation-id) / "";
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $review-serif;
   background-color: var(--bg-color);
   display: inline-block;
   position: absolute;
   border-radius: 50%;
   border: 1px solid var(--hr-color);
-  width: 0.875rem;
-  height: 0.875rem;
-  font-size: 0.875rem;
+  width: $comment-badge-size;
+  height: $comment-badge-size;
+  font-size: $comment-badge-size;
   line-height: 0.75rem;
   padding: 0.1875rem;
   text-align: center;
@@ -216,22 +241,22 @@ body {
   background-color: var(--review-annotation-selected-background-color);
 }
 .review .commenter {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 80%;
+  font-family: $review-sans;
+  font-size: $font-size-small;
   color: var(--review-commenter-text-color);
 }
 .review .no-margin {
   margin: 0 !important;
 }
 .review .small {
-  font-size: 80%;
+  font-size: $font-size-small;
 }
 .review .fine-print {
   font-size: 70%;
   margin-top: 3rem;
 }
 .review .annotation-group .annotation.thread {
-  margin-left: 0.625rem;
+  margin-left: $thread-indent-unit;
 }
 .review .elide {
   border-top: 1px dashed var(--hr-color);
@@ -257,34 +282,14 @@ body {
 .review ol.alpha-paren {
   list-style: alpha-paren;
 }
-.review .annotation-group .annotation.thread-2 {
-  margin-left: 1.25rem;
+
+@for $i from 2 through 10 {
+  .review .annotation-group .annotation.thread-#{$i} {
+    margin-left: #{$i * $thread-indent-unit};
+  }
 }
-.review .annotation-group .annotation.thread-3 {
-  margin-left: 1.875rem;
-}
-.review .annotation-group .annotation.thread-4 {
-  margin-left: 2.5rem;
-}
-.review .annotation-group .annotation.thread-5 {
-  margin-left: 3.125rem;
-}
-.review .annotation-group .annotation.thread-6 {
-  margin-left: 3.75rem;
-}
-.review .annotation-group .annotation.thread-7 {
-  margin-left: 4.375rem;
-}
-.review .annotation-group .annotation.thread-8 {
-  margin-left: 5rem;
-}
-.review .annotation-group .annotation.thread-9 {
-  margin-left: 5.625rem;
-}
-.review .annotation-group .annotation.thread-10 {
-  margin-left: 6.25rem;
-}
-@media screen and (min-width: 1801px) {
+
+@media screen and (min-width: $bp-review-wide) {
   .review .group .left .content {
     padding-left: 20%;
     padding-right: 2.5rem;
@@ -294,14 +299,14 @@ body {
     padding-right: 20%;
   }
 }
-@media screen and (min-width: 1001px) and (max-width: 1800px) {
+@media screen and (min-width: $bp-review-mid-min) and (max-width: $bp-review-mid-max) {
   .review .group .left .content,
   .review .group .right .content {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
 }
-@media screen and (min-width: 751px) {
+@media screen and (min-width: $bp-review-tablet) {
   .review .group .left .content,
   .review .group .right .content {
     max-width: 50rem;
@@ -323,7 +328,7 @@ body {
     margin-bottom: 0.8rem;
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: $bp-review-mobile) {
   .review .group {
     flex-direction: column;
   }
@@ -336,7 +341,7 @@ body {
     margin-top: 1rem;
   }
   .review .annotation {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: $review-sans;
     font-size: 90%;
   }
   .review .content > .annotation,
@@ -344,7 +349,7 @@ body {
     margin-top: 1rem;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: $bp-review-small) {
   .review .group .left .content,
   .review .group .right .content {
     padding-left: 1.25rem;
@@ -352,12 +357,13 @@ body {
   }
 }
 
+// .no-js.review has higher specificity than .review, so !important is not needed here
 .no-js.review mark:hover {
-  cursor: auto !important;
-  background-color: var(--review-highlight-color-deselected) !important;
+  cursor: auto;
+  background-color: var(--review-highlight-color-deselected);
 }
 .no-js.review .annotation:hover {
-  cursor: auto !important;
+  cursor: auto;
 }
 
 .latecomers-guide h3 {

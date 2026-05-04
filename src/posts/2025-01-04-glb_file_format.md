@@ -1,10 +1,11 @@
 ---
 title: glb file format
-layout: layouts/post.njk
 image: assets/images/glb_file_format/Screenshot 2025-01-04 065807.png
 alt: "Screenshot of Google's AI Summary from a Google search of 'glb file format'"
 caption: "Screenshot of Google's AI Summary from a Google search of 'glb file format'"
 date: 2025-01-04
+section: "Tech"
+heroStyle: full
 ---
 
 I wanted to look at the quality of Google's first page of search results, using search operators to exclude AI-written articles and remove Google's AI Summary. I used the search operators `before:` and `-ai`.

@@ -1,11 +1,13 @@
 ---
 title: What Are We Even Doing?
-layout: layouts/post.njk
 subtitle: "or: How I Learned to Stop Worrying and Love Artificial Intelligence"
 image: assets/images/what_are_we_even_doing/Screenshot 2025-10-08 at 18-05-46 ChatGPT.png
 alt: "Screenshot of OpenAI's ChatGPT website on Desktop."
 caption: "Screenshot of OpenAI's ChatGPT website on Desktop."
 date: 2025-10-08
+section: "Tech"
+heroPosition: above
+heroStyle: full
 ---
 
 Whilst browsing YouTube, I came across [AI In Context](https://www.youtube.com/@AI_In_Context)'s '[We're Not Ready for Superintelligence](https://www.youtube.com/watch?v=5KVDDfAkRgc)'. This video, to me, was conspiratorial and made a lot of assumptions that just felt wrong. I mean just look at the description of the video:

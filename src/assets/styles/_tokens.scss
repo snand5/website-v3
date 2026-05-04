@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #f7f7f7;
   --blockquote-quote-color: #888888;
   --note-background-color: #eeeeee;
   --hr-color: #dddddd;
@@ -32,10 +32,83 @@
   --review-commenter-text-color: #999999;
 
   --serif-fonts: "SourceSerif", "Times New Roman", serif;
-  --sans-serif-fonts: "SansSerif", "Helvetica", sans-serif;
+  --sans-serif-fonts: "SourceSans", "Helvetica", sans-serif;
   --monospace-fonts: "SourceCode", "Menlo", "Monaco", "Courier New", monospace;
 
-  @media (prefers-color-scheme: dark) {
+  --page-max-width: 80rem;
+  --transition-duration: 0.3s;
+  --shadow-offset: 4px 4px 0 0;
+
+  --line-height-tight:  1.1;
+  --line-height-snug:   1.2;
+  --line-height-close:  1.25;
+  --line-height-medium: 1.4;
+  --line-height-base:   1.5;
+  --line-height-large:  1.6;
+
+  // Each font size scales linearly from its min (at 320px viewport) to its max
+  // (at 1600px). The multiplier is (max - min) / 0.8rem.
+  --font-size-base: clamp(1rem,    1rem    + ((1vw - 0.2rem) * 0.3125), 1.25rem);
+  --font-size-h1:   clamp(1.6rem,  1.6rem  + ((1vw - 0.2rem) * 0.5),   2rem);
+  --font-size-h2:   clamp(1.3rem,  1.3rem  + ((1vw - 0.2rem) * 0.375), 1.6rem);
+  --font-size-h3:   clamp(1.1rem,  1.1rem  + ((1vw - 0.2rem) * 0.25),  1.3rem);
+  --font-size-h4:   clamp(1.05rem, 1.05rem + ((1vw - 0.2rem) * 0.1875), 1.2rem);
+  --font-size-h5:   clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.156), 1rem);
+
+  --spacing-20:  0.44rem;
+  --spacing-24:  1.5rem;
+  --spacing-30:  0.67rem;
+  --spacing-32:  clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.685), 2rem);
+  --spacing-40:  1rem;
+  --spacing-48:  clamp(2rem,   1.8rem + 1vw,   3rem);
+  --spacing-60:  2.25rem;
+  --spacing-64:  clamp(2.5rem, 2rem + 2.2vw,   4rem);
+  --spacing-70:  3.38rem;
+  --spacing-80:  clamp(2.5rem, 2rem + 2.5vw,   5rem);
+  --spacing-120: clamp(4rem,   3.3rem + 3.5vw, 7.5rem);
+
+}
+
+// Dark mode — two sources of truth by design:
+// [data-theme="dark"] responds to the JS theme toggle
+// @media responds to OS preference with no JS required
+
+[data-theme="dark"] {
+  --bg-color: #161616;
+  --note-background-color: #333333;
+  --hr-color: #666666;
+  --accent-color-purple: #b4abda;
+  --accent-color-purple-background: #a79dd0;
+  --accent-color-purple-background-hover: #5948a4;
+  --code-background-color: #2c2c2c;
+  --image-light-background-color: #dddddd;
+  --highlight-background-color: #666666;
+  --button-color: #161616;
+  --button-color-hover: #333333;
+
+  --main-text-color: #f1f1f1;
+  --secondary-text-color: #aaaaaa;
+  --link-text-hover-color: #bbbbbb;
+  --timestamp-color: #aaaaaa;
+  --note-text-color: #aaaaaa;
+  --note-text-hover-color: #cccccc;
+
+  --review-highlight-color: #9d8700;
+  --review-highlight-color-deselected: #786a16;
+  --review-annotation-section-background-color: #222222;
+  --review-annotation-selected-background-color: #444444;
+  --review-annotation-selected-border-color: #999999;
+  --review-addition-color: #3b5b3b;
+  --review-addition-color-highlighted: #5b7400;
+  --review-highlight-2: #535171;
+
+  .bw-icon {
+    filter: invert(100%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
     --bg-color: #161616;
     --note-background-color: #333333;
     --hr-color: #666666;
@@ -62,31 +135,7 @@
     --review-addition-color: #3b5b3b;
     --review-addition-color-highlighted: #5b7400;
     --review-highlight-2: #535171;
-
-    .bw-icon {
-      filter: invert(100%);
-    }
   }
-}
-
-[data-theme="dark"] {
-  --bg-color: #161616;
-  --note-background-color: #333333;
-  --hr-color: #666666;
-  --accent-color-purple: #b4abda;
-  --accent-color-purple-background: #a79dd0;
-  --accent-color-purple-background-hover: #5948a4;
-  --code-background-color: #2c2c2c;
-  --image-light-background-color: #dddddd;
-  --highlight-background-color: #666666;
-  --button-color: #161616;
-  --button-color-hover: #444444;
-
-  --main-text-color: #f1f1f1;
-  --link-text-hover-color: #bbbbbb;
-  --timestamp-color: #aaaaaa;
-  --note-text-color: #aaaaaa;
-  --note-text-hover-color: #cccccc;
 
   .bw-icon {
     filter: invert(100%);

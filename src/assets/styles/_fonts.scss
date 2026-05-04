@@ -1,70 +1,23 @@
-@font-face {
-  font-family: SourceSerif;
-  src: url("../fonts/SourceSerif4-Regular.otf.woff2") format("woff2"),
-    url("../fonts/SourceSerif4-Regular.otf.woff") format("woff"),
-    url("../fonts/SourceSerif4-Regular.ttf") format("ttf");
+// Each font is supplied in woff2 (primary), woff, and ttf (fallback) formats.
+@mixin declare-font($family, $file, $weight: 400, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url("../fonts/#{$file}.otf.woff2") format("woff2"),
+      url("../fonts/#{$file}.otf.woff") format("woff"),
+      url("../fonts/#{$file}.ttf") format("truetype");
+    font-weight: $weight;
+    font-style: $style;
+  }
 }
 
-@font-face {
-  font-family: SourceSerif;
-  src: url("../fonts/SourceSerif4-Bold.otf.woff2") format("woff2"),
-    url("../fonts/SourceSerif4-Bold.otf.woff") format("woff"),
-    url("../fonts/SourceSerif4-Bold.ttf") format("ttf");
-  font-weight: 700;
-}
+@include declare-font("SourceSerif", "SourceSerif4-Regular");
+@include declare-font("SourceSerif", "SourceSerif4-Bold", 700);
+@include declare-font("SourceSerif", "SourceSerif4-It", 400, italic);
+@include declare-font("SourceSerif", "SourceSerif4-BoldIt", 700, italic);
 
-@font-face {
-  font-family: SourceSerif;
-  src: url("../fonts/SourceSerif4-It.otf.woff2") format("woff2"),
-    url("../fonts/SourceSerif4-It.otf.woff") format("woff"),
-    url("../fonts/SourceSerif4-It.ttf") format("ttf");
-  font-style: italic;
-}
+@include declare-font("SourceSans", "SourceSans3-Regular");
+@include declare-font("SourceSans", "SourceSans3-Bold", 700);
+@include declare-font("SourceSans", "SourceSans3-It", 400, italic);
+@include declare-font("SourceSans", "SourceSans3-BoldIt", 700, italic);
 
-@font-face {
-  font-family: SourceSerif;
-  src: url("../fonts/SourceSerif4-BoldIt.otf.woff2") format("woff2"),
-    url("../fonts/SourceSerif4-BoldIt.otf.woff") format("woff"),
-    url("../fonts/SourceSerif4-BoldIt.ttf") format("ttf");
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: SourceSans;
-  src: url("../fonts/SourceSans3-Regular.otf.woff2") format("woff2"),
-    url("../fonts/SourceSans3-Regular.otf.woff") format("woff"),
-    url("../fonts/SourceSans3-Regular.ttf") format("ttf");
-}
-
-@font-face {
-  font-family: SourceSans;
-  src: url("../fonts/SourceSans3-Bold.otf.woff2") format("woff2"),
-    url("../fonts/SourceSans3-Bold.otf.woff") format("woff"),
-    url("../fonts/SourceSans3-Bold.ttf") format("ttf");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: SourceSans;
-  src: url("../fonts/SourceSans3-It.otf.woff2") format("woff2"),
-    url("../fonts/SourceSans3-It.otf.woff") format("woff"),
-    url("../fonts/SourceSans3-It.ttf") format("ttf");
-  font-style: italic;
-}
-
-@font-face {
-  font-family: SourceSans;
-  src: url("../fonts/SourceSans3-BoldIt.otf.woff2") format("woff2"),
-    url("../fonts/SourceSans3-BoldIt.otf.woff") format("woff"),
-    url("../fonts/SourceSans3-BoldIt.ttf") format("ttf");
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: SourceCode;
-  src: url("../fonts/SourceCodePro-Regular.otf.woff2") format("woff2"),
-    url("../fonts/SourceCodePro-Regular.otf.woff") format("woff"),
-    url("../fonts/SourceCodePro-Regular.ttf") format("ttf");
-}
+@include declare-font("SourceCode", "SourceCodePro-Regular");

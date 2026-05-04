@@ -1,5 +1,6 @@
 ---
 permalink: /newsletters{{pageState}}.opml.xml
+eleventyExcludeFromCollections: true
 pagination:
   data: pageStates
   size: 1
@@ -20,8 +21,10 @@ pageStates:
   <body>
     <outline text="Newsletters" title="Newsletters">
       {% for site in newslettersBlogroll|sortBlogs %}
+        {% if pageState != 'NoSubstack' or 'Substack' not in (site.tags or []) %}
       <outline text="{{ site.text if site.text else site.author }}" title="{{ site.text if site.text else site.author }}"
         type="rss" xmlUrl="{{ site.xmlUrl }}" htmlUrl="{{ site.htmlUrl }}" />
+        {% endif %}
       {% endfor %}
     </outline>
   </body>

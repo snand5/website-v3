@@ -1,4 +1,4 @@
-<nav role="nav" data-nosnippet>
+<nav aria-label="Main navigation" data-nosnippet>
   <div class="logo-image">
     <a class="u-url u-uid" href="/">
       <picture>
@@ -20,17 +20,20 @@
       </picture>
     </a>
   </div>
-  <button id="menu-toggle" class="menu-toggle">Menu</button>
+  <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">Menu</button>
   <div id="nav-links" class="nav-links collapsed">
     <ul class="top-level">
       <li>
-        <a href="/">Home</a>
+        <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+      </li>
+      <li>
+        <a href="/blog" {% if page.url.startsWith("/blog") and not page.url.startsWith("/blogroll") %}aria-current="page"{% endif %}>Blog</a>
       </li>
     </ul>
     <ul>
       <li class="nav-header">Other interests</li>
       <li>
-        <a href="/blogroll">Blogroll</a>
+        <a href="/blogroll" {% if page.url.startsWith("/blogroll") %}aria-current="page"{% endif %}>Blogroll</a>
       </li>
     </ul>
     <ul>

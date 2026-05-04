@@ -1,0 +1,62 @@
+---
+pagination:
+  data: collections.sectionList
+  size: 1
+  alias: section
+permalink: /blog/{{ section.slug }}/
+---
+{% extends "layouts/with-nav.njk" %}
+{% block content %}
+
+<p class="blog-section-heading">{{ section.name }}</p>
+
+{% set featuredPost = section.posts | first %}
+
+{% if featuredPost %}
+<div class="blog-hero blog-hero-section">
+  {% if featuredPost.data.image %}
+  <a href="{{ featuredPost.url }}" class="blog-hero-image">
+    <img src="/{{ featuredPost.data.image }}" alt="{{ featuredPost.data.alt }}" loading="lazy">
+  </a>
+  {% endif %}
+  <div class="blog-hero-content">
+    <h2 class="blog-hero-title">
+      <a href="{{ featuredPost.url }}">{{ featuredPost.data.title }}</a>
+    </h2>
+    {% if featuredPost.data.description or featuredPost.data.subtitle %}
+    <p class="blog-hero-excerpt">{{ featuredPost.data.description or featuredPost.data.subtitle }}</p>
+    {% endif %}
+    <time datetime="{{ featuredPost.date.toISOString() }}" class="post-date">
+      {{ featuredPost.date | readableDate }}
+    </time>
+  </div>
+</div>
+{% endif %}
+
+{% set remainingPosts = section.posts | skip(1) %}
+{% if remainingPosts.length %}
+<div class="blog-grid">
+  {% for post in remainingPosts %}
+  <article class="blog-card">
+    {% if post.data.image %}
+    <a href="{{ post.url }}" class="blog-card-image-link">
+      <img src="/{{ post.data.image }}" alt="{{ post.data.alt }}" loading="lazy">
+    </a>
+    {% endif %}
+    <div class="blog-card-content">
+      <h3 class="blog-card-title">
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+      </h3>
+      {% if post.data.description or post.data.subtitle %}
+      <p class="blog-card-excerpt">{{ post.data.description or post.data.subtitle }}</p>
+      {% endif %}
+      <time datetime="{{ post.date.toISOString() }}" class="post-date">
+        {{ post.date | readableDate }}
+      </time>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

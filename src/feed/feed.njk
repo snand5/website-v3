@@ -1,0 +1,25 @@
+---
+permalink: /feed/feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Shavon Nand</title>
+  <link href="https://www.shavon.gg/feed/feed.xml" rel="self"/>
+  <link href="https://www.shavon.gg/"/>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>https://www.shavon.gg/</id>
+  <author>
+    <name>Shavon Nand</name>
+  </author>
+  {%- for post in collections.posts | reverse %}
+  {%- set absolutePostUrl = post.url | absoluteUrl("https://www.shavon.gg") %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}"/>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

@@ -3,12 +3,15 @@
 {% block pagecontent %}
   <div class="page-container {{page_class}}">
     {% include "nav.njk" %}
-    <main>
+    <main id="main-content">
       {% block content %}{% endblock %}
     </main>
+    <footer>
+      <p>&copy; Shavon Nand</p>
+    </footer>
   </div>
 {% endblock %}
 
 {% block js %}
-  <script src="https://www.mollywhite.net/assets/js/nav.js"></script>
+  <script src="/assets/js/nav.js"></script>
 {% endblock %}

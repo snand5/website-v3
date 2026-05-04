@@ -1,4 +1,6 @@
 {
+  "layout": "layouts/post.njk",
   "tags": "posts",
-  "permalink": "/blog/{{ title | slugify }}/"
+  "permalink": "/blog/{{ title | slugify }}/",
+  "showReadingTime": true
 }

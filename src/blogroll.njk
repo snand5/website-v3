@@ -2,7 +2,6 @@
 title: "Blogroll"
 description: "A list of blogs Shavon Nand likes to read."
 page_class: "blogroll"
-path: "/blogroll"
 ---
 
 {% extends "layouts/with-nav.njk" %} {% block content %}
@@ -26,6 +25,7 @@ path: "/blogroll"
   <label for="toggle-substack">Omit Substack Blogs</label
   ><sup><a href="#footnote2">2</a></sup>
 </p>
+<p class="sr-only" id="blogroll-status" aria-live="polite" aria-atomic="true"></p>
 <h2>Blogs</h2>
 (<a class="opml-link" href="/blogs.opml.xml">OPML</a>)
 <ul class="blog-list">
